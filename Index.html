@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../Styles/Index.css">
-		<script type="text/javascript" src="../Scripts/matchcore.js"></script>
+		<link rel="stylesheet" type="text/css" href="./Styles/Index.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="./Scripts/matchcore.js"></script>
 		<title> Melo Match</title>
 	</head>
 	<body>
@@ -14,7 +15,27 @@
 			<div class='OriginList' id='Origin1'>
 				<ul>
 					<li>
+						luis1
+					</li>
+					<li>
+						luis2
+					</li>
+					<li>
+						luis3
+					</li>
+				</ul>
+			</div>
 
+			<div class='OriginList' id='Origin2'>
+				<ul>
+					<li>
+						be1
+					</li>
+					<li>
+						be2
+					</li>
+					<li>
+						be3
 					</li>
 				</ul>
 			</div>
@@ -22,11 +43,10 @@
 		<div class="ResultFrame">
 			<div class='DestList' id='Dest1'>
 				<ul>
-					<li>
 
-					</li>
 				</ul>
 			</div>
 		</div>
+		<button type="button" onclick="javascript:Match.Match('#Origin1','#Origin2')">Start</button>
 	</body>
 </html>

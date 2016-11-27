@@ -1,4 +1,4 @@
-var Match = function(){
+var Match = (function(){
 
 	var ListsDic = {};
 	/**
@@ -6,7 +6,8 @@ var Match = function(){
 	 * @param  {String} listId [the name or id wanted do identify the list]
 	 * @return {Object}        [the created list]
 	 */
-	var insertNewList = function(listId){
+	var insertNewList = function(
+		){
 		list = {
 				lastId: 0,
 				id: listId,
@@ -45,6 +46,15 @@ var Match = function(){
 		return false;
 	};
 
+	var getRandomItem = function(list){
+
+		var length = list.length;
+		var index = Math.floor(Math.random()* length );
+		var ret = list.splice(index,1);
+		ret[0].remove();
+		return ret;
+	};
+
 	/**
 	 * Finds the first and second lists by tag id and grabs randomly an item of each list,
 	 * adds a match of these items in the matching list
@@ -53,7 +63,24 @@ var Match = function(){
 	 * @return {Null}
 	 */
 	var match = function(first,second){
+		var firstlist = $(first + " li");
+		var secondlist = $(second + " li");
 
+		var destList = $("#Dest1 ul");
+		var length = firstlist.length;
+		
+		while(length > 0){
+			length --;
+			var firstItem = getRandomItem(firstlist)[0].innerHTML.trim();
+			var secondItem = getRandomItem(secondlist)[0].innerHTML.trim();
+
+			var newChild = $("<li>");
+
+			newChild.html(firstItem + "->" + secondItem);
+
+			destList.append(newChild);
+
+		}
 	};
 
 	return {
@@ -61,4 +88,4 @@ var Match = function(){
 		RemoveName : removeNameByID,
 		Match : match
 	};
-};
+}());
